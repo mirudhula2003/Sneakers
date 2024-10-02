@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/demo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+   
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+</head>
+<body>
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-white" style="padding-top: 20px;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-size: xx-large; padding-bottom: 26px; padding-left: 40px;">sneakers</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible section (only links collapse) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Collections</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Men</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Women</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right-aligned cart and profile picture -->
+    <div class="d-flex align-items-center ms-auto">
+      <!-- Cart -->
+      <div class="dropdown me-3">
+        <button class="btn" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="images/icon-cart.svg" width="50px" style="padding-right: 10px; padding-top:5px;">
+          <span id="cart-quantity" class="badge bg-orange" style="display: none;">0</span>
+        </button>
+        <ul class="dropdown-menu cart-dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown">
+          <li class="dropdown-header"><span style="font-weight: bolder; font-size: large; color:black">Cart</span></li>
+          <li><hr class="dropdown-divider"></li>
+          <br>
+          <li id="empty-cart-message" class="empty-cart-message" style="display: none;">
+            Your cart has 0 items.
+          </li>
+          <li class="cart-dropdown-item">
+            <img src="images/image-product-1-thumbnail.jpg" alt="Product Image" style="width:72px; height:70px">
+            <div class="cart-dropdown-item-details">
+              <p>Fall Limited Edition Sneakers<br>$125.00 x <span id="cart-item-quantity">3</span> <b>$375.00</b></p>
+            </div>
+            <div class="cart-dropdown-item-delete" id="delete-btn">
+              <i class="fas fa-trash-alt" style="padding-left: 5px;height:10px"></i>
+            </div>
+          </li>
+          <br>
+          <li class="text-center">
+            <button class="checkout-btn">Checkout</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Profile Picture -->
+      <div class="profile-pic">
+        <img src="images/image-avatar.png" alt="Profile Picture" style="width: 40px;">
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- central content -->
+ <!-- Central Content -->
+<div class="container pt-5">
+  <div class="row">
+    <!-- Left Column with Images -->
+    <div class="col-lg-6 col-md-12">
+      <div class="mb-3">
+        <img src="images/image-product-1.jpg" class="img-fluid w-100" alt="Large Image of Fall Limited Edition Sneakers" style="border-radius: 4%;" onclick="openLightbox(1)">
+      </div>
+      <div class="row">
+        <div class="col-3 mb-2">
+          <img src="images/image-product-1-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 1" style="border-radius: 7%;" onclick="openLightbox(1)">
+        </div>
+        <div class="col-3 mb-2">
+          <img src="images/image-product-2-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 2" style="border-radius: 7%;" onclick="openLightbox(2)">
+        </div>
+        <div class="col-3 mb-2">
+          <img src="images/image-product-3-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 3" style="border-radius: 7%;" onclick="openLightbox(3)">
+        </div>
+        <div class="col-3 mb-2">
+          <img src="images/image-product-4-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 4" style="border-radius: 7%;" onclick="openLightbox(4)">
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column with Text Content -->
+    <div class="col-lg-6 col-md-12" >
+      <h5>SNEAKER COMPANY</h5>
+      <h1><b>Fall Limited Edition Sneakers</b></h1>
+      <h5 style="padding-top: 50px;font-weight: light;">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</h5>
+      <h3 class="price">$125.00    <span style="color:white;background-color: black;border-radius: 15%; padding:4px;">50%</span></h3>
+      <h5><strike>$250.00</strike></h5>
+      <div class="container mt-5">
+        <div class="counter-container">
+          <button id="minus-btn" class="btn btn-light" style="color: #ff6a00;font-weight: bolder;font-size: larger;">-</button>
+          <input type="number" id="counter" class="counter-input" value="0">
+          <button id="plus-btn" class="btn btn-light" style="color: #ff6a00;font-weight: bolder;font-size: larger;">+</button>
+          <button id="add-to-cart-btn" class="btn btn-add-to-cart ms-3">🛒 Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-image" class="lightbox-image" src="" style="padding:100px;">
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    <div class="row">
+      <div class="col-3 mb-2">
+        <img src="images/image-product-1-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 1" style="border-radius: 7%;" onclick="openLightbox(1)" style="width: 50px; height: 50px;">
+      </div>
+      <div class="col-3 mb-2">
+        <img src="images/image-product-2-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 2" style="border-radius: 7%;" onclick="openLightbox(2)" style="width: 50px; height: 50px;">
+      </div>
+      <div class="col-3 mb-2">
+        <img src="images/image-product-3-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 3" style="border-radius: 7%;" onclick="openLightbox(3)" style="width: 50px; height: 50px;">
+      </div>
+      <div class="col-3 mb-2">
+        <img src="images/image-product-4-thumbnail.jpg" class="img-fluid w-100" alt="Small Image 4" style="border-radius: 7%;" onclick="openLightbox(4)" style="width: 50px; height: 50px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
+
+<script>
+  const price = 125; // Price of the product
+  let totalItems = 0;
+
+  // Minus button click handler
+  document.getElementById('minus-btn').addEventListener('click', function() {
+    var counterInput = document.getElementById('counter');
+    var currentValue = parseInt(counterInput.value);
+    if (currentValue > 0) {
+        counterInput.value = currentValue - 1;
+    }
+  });
+
+  // Plus button click handler
+  document.getElementById('plus-btn').addEventListener('click', function() {
+    var counterInput = document.getElementById('counter');
+    counterInput.value = parseInt(counterInput.value) + 1;
+  });
+
+  // Add to Cart button click handler
+  document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+    var counterInput = document.getElementById('counter').value;
+    var quantity = parseInt(counterInput);
+
+    if (quantity > 0) {
+        // Update the total items in the cart with the current quantity
+        totalItems = quantity; // Update to the current quantity rather than accumulating
+
+        // Update the cart with the total items
+        var cartQuantity = document.getElementById('cart-quantity');
+        cartQuantity.textContent = totalItems;
+        cartQuantity.style.display = 'inline-block'; // Show the cart badge if hidden
+
+        // Calculate the total price
+        let totalPrice = totalItems * price;
+
+        // Dynamically update the cart content with quantity and total price
+        document.querySelector('.cart-dropdown-item-details').innerHTML = `
+          <p>Fall Limited Edition Sneakers <br>
+          $${price.toFixed(2)} x <span id="cart-item-quantity">${totalItems}</span> <b>$${totalPrice.toFixed(2)}</b></p>
+        `;
+
+        console.log('Total Price:', totalPrice);
+    }
+  });
+  document.getElementById('delete-btn').addEventListener('click', function() {
+    // Clear the cart
+    totalItems = 0;
+
+    // Update the cart display
+    const cartQuantity = document.getElementById('cart-quantity');
+    cartQuantity.textContent = totalItems;
+    cartQuantity.style.display = 'none'; // Hide the cart badge if no items
+
+    // Hide the product info and image inside the cart-dropdown-item
+    const cartItem = document.querySelector('.cart-dropdown-item');
+    if (cartItem) {
+        cartItem.style.display = 'none'; // Hide the entire product info and image
+    }
+
+    // Show the "Your cart has 0 items" message
+    const emptyMessage = document.getElementById('empty-cart-message');
+    if (emptyMessage) {
+        emptyMessage.style.display = 'block'; // Show the empty cart message
+    }
+});
+
+
+
+
+let currentSlideIndex = 0;
+
+function openLightbox(slideIndex) {
+  currentSlideIndex = slideIndex - 1;
+  document.getElementById("lightbox").style.display = "block";
+  showSlide();
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function changeSlide(n) {
+  currentSlideIndex += n;
+  showSlide();
+}
+
+function showSlide() {
+  const images = [
+    'images/image-product-1.jpg',
+    'images/image-product-2.jpg',
+    'images/image-product-3.jpg',
+    'images/image-product-4.jpg'
+  ];
+
+  if (currentSlideIndex >= images.length) {
+    currentSlideIndex = 0;
+  }
+  if (currentSlideIndex < 0) {
+    currentSlideIndex = images.length - 1;
+  }
+
+  const lightboxImage = document.getElementById("lightbox-image");
+  lightboxImage.src = images[currentSlideIndex];
+}
+
+</script>
+
+
+
+
+<style>
+/* navbar */
+.nav-link {
+  position: relative;
+  padding-bottom: 25px;
+  padding-left: 10px;
+  padding-right:10px;
+  transition: border-bottom 0.3s ease; 
+  font-size:x-large;
+}
+
+.nav-link:hover {
+  border-bottom: 4px solid orange; /* Adds orange bottom border on hover */
+}
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+  .counter-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .counter-input {
+    width: 60px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 5px;
+    appearance: none;
+  }
+
+  .btn-add-to-cart {
+    background-color: #ff6a00;
+    color: white;
+  }
+
+  .counter-input {
+    -moz-appearance: textfield;
+  }
+
+  .counter-input::-webkit-outer-spin-button,
+  .counter-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Styling the cart quantity */
+  .badge {
+    position: relative;
+    top: -20px;
+    left: -10px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: #ff6a00;
+  }
+  .cart-dropdown-menu {
+      width: 400px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .cart-dropdown-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-dropdown-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+    }
+
+    .checkout-btn {
+      background-color: #ff6a00;
+      color: white;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .checkout-btn:hover {
+      background-color: #e55d00;
+    }
+
+    .cart-dropdown-item-details {
+      margin-left: 10px;
+      flex-grow: 1;
+    }
+
+    .cart-dropdown-item-delete {
+      cursor: pointer;
+    }
+
+    /* Lightbox Styling */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+  position: relative;
+  margin: auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+.lightbox-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+</style>
+
+</body>
+</html>
